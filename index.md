@@ -6,6 +6,9 @@ Liste de tous les skills du repo. Chaque entrée renvoie vers l'`index.md` du sk
 |-------|-------------|---------|
 | [apple-design](apple-design/index.md) | Interfaces fluides et mouvement physique façon Apple, pour le web | Emil Kowalski |
 | [grilling](grilling/index.md) | Interview impitoyable pour éprouver un plan, une décision ou une idée (base des deux autres) | Matt Pocock |
+| [grill-me](grill-me/index.md) | Interview impitoyable pour affiner un plan, sans rien écrire (appelle grilling) | Matt Pocock |
+| [grill-with-docs](grill-with-docs/index.md) | Interview impitoyable qui crée aussi la doc (ADR, glossaire) ; appelle grilling et domain-modeling | Matt Pocock |
+
 ## Légende
 
 - **Origine** : `perso` si je l'ai créé, sinon le nom de l'auteur ou de la source.
