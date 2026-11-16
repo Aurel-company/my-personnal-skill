@@ -44,6 +44,8 @@ While building, keep the catalog open. The highest-signal tells, in the order la
 - **Motion**: the same fade-up on every section, bounce easing, count-up stats, motion that responds to nothing.
 - **Copy**: buzzwords ("seamless", "robust", "supercharge"), em-dash in every sentence, "Build faster. Ship smarter.", hedging, aphorism cadence, stock openers.
 - **Imagery**: plastic AI illustrations, stock team photos, placeholder avatars, shape-assembled illustrations.
+- **Hierarchy and grouping**: competing buttons of equal weight, groups split by lines instead of spacing, decorative badges and filter chips, redundant labels, a main feature that is no larger than the rest.
+- **Craft details**: mono used as decoration, proportional digits in tables and counters, headlines with orphan words, the same radius on nested shapes, centering by box instead of by eye.
 - **Missing reality**: only the happy path designed, no empty, loading or error states, every function visible at once.
 
 ### 3. Audit before you ship
@@ -51,15 +53,15 @@ While building, keep the catalog open. The highest-signal tells, in the order la
 Run the pre-ship questions, then fix in this order (P0 first):
 
 - **P0, noticed by anyone**: gradient and glow, centered generic hero, identical card row, buzzword copy, AI imagery, builder badges ("Built with…"), emoji icons.
-- **P1, noticed by designers and developers**: unchosen fonts, untouched shadcn tokens, uniform spacing and radius, stock section order, same animation everywhere, missing states, design drift between pages.
-- **P2, craft**: tracking and line-height, optical alignment, icon weight consistency, meta and alt text, OG image.
+- **P1, noticed by designers and developers**: unchosen fonts, untouched shadcn tokens, uniform spacing and radius, stock section order, same animation everywhere, missing states, design drift between pages, competing CTAs, decorative badges and chips, redundant labels, groups separated by lines instead of spacing, mono as decoration.
+- **P2, craft**: tracking and line-height, optical alignment (align by eye), icon weight consistency, concentric radii (inner = outer − padding), tabular numbers, headline wrapping, meta and alt text, OG image.
 
 Pre-ship questions:
 
 1. Could this page belong to a competitor with only the logo swapped? If yes, the direction is too generic.
 2. For each section: which default did I replace, and with what decision?
 3. Is there anything on the page I cannot justify by the product, the content or a function?
-4. Does hierarchy come from real priority (size, weight, space), or is everything the same weight?
+4. Does hierarchy come from real priority (size, weight, space), or is everything the same weight? Is there one clearly primary action and one clearly main feature per view?
 5. Are the unhappy paths (empty, loading, error, long text, no data) designed?
 6. Does it still work with keyboard only, at phone width, with reduced motion, and in both themes if both exist?
 
@@ -69,4 +71,4 @@ Report findings as: tell, where it is, why it reads as AI, concrete replacement.
 
 ## Pairing
 
-This skill is about what to **avoid** and how to **decide**. It does not replace a full design process: pair it with a product-design pass for flows and states, and with a detector (a linter or a rendered-page scan) when one is available.
+This skill is about what to **avoid** and how to **decide**. It does not replace a full design process: pair it with a product-design pass for flows and states, and with a detector (a linter or a rendered-page scan) when one is available. For how to implement the craft fixes (concentric radius, tabular numbers, headline wrapping, optical alignment, OKLCH, alpha borders), use the `interface-craft` skill; for motion that gives useful feedback, use `app-motion`.

@@ -16,7 +16,7 @@ Se déclenche quand tu construis ou relis un front et que le résultat doit para
 
 ## Dépendances
 
-Aucune. Il se combine bien avec un skill de design produit (parcours, états) et avec un détecteur automatique quand il y en a un.
+Aucune. Il se combine bien avec un skill de design produit (parcours, états), avec un détecteur automatique quand il y en a un, avec `interface-craft` (mise en œuvre des détails : rayons concentriques, chiffres tabulaires, retour à la ligne des titres, alignement optique) et avec `app-motion` (feedback animé utile).
 
 ## Installation
 
@@ -47,6 +47,7 @@ Utilisation : automatique, ou à la main avec `/design-without-ai-tells`.
 - Force un cadrage écrit (idéalement un `DESIGN.md`) avant la première ligne de code UI.
 - Interdit d'inventer logos, clients, chiffres, témoignages ou photos d'équipe.
 - Fait repérer et remplacer les signes : dégradés et lueurs, Inter non choisi, hero centré, cartes identiques, bordures colorées, glassmorphism, fade-in partout, emoji en icônes, mots creux, tirets cadratins, images IA, badges de builders.
+- Couvre aussi la hiérarchie et le regroupement (un seul CTA principal, grouper par l'espacement, agrandir la fonctionnalité principale, supprimer badges décoratifs, pastilles de filtre et labels redondants) et les détails de finition (mono seulement si nécessaire, chiffres tabulaires, titres bien coupés, rayon intérieur = rayon extérieur − padding, alignement à l'œil).
 - Fait vérifier le socle : contraste AA, focus, `prefers-reduced-motion`, mobile, formulaires qui fonctionnent.
 - En relecture, rapporte chaque trouvaille ainsi : signe, emplacement, pourquoi il fait « IA », remplacement concret.
 
@@ -63,4 +64,4 @@ Utilisation : automatique, ou à la main avec `/design-without-ai-tells`.
 - **Auteur** : Aurel, avec Claude (synthèse originale, skill créé pour ce repo).
 - **Sources** : articles et skills publiés en 2026, détaillés dans `references/sources.md`. Principaux : Developers Digest, Utsubo (Jocelyn Lecamus), 925Studios, Kosta Canatselis, et les skills open source [avoid-ai-design](https://github.com/funboy322/avoid-ai-design) (funboy322, MIT), [Anti-Slop Design](https://github.com/Ferousco-dev/anti-slop-design) (Feranmi, MIT) et [Hallmark](https://github.com/nutlope/hallmark) (Together AI, MIT).
 - **Licence** : aucun texte des sources n'est copié ; seules les idées sont reprises et recoupées. Les licences des dépôts cités sont indiquées pour information.
-- **Modifications** : sans objet, c'est une création.
+- **Modifications** : création initiale, puis ajout de 9 signes au catalogue (badges et pastilles décoratifs, labels redondants, regroupement par l'espacement, CTA concurrents, mono décoratif, chiffres proportionnels, titres mal coupés, rayons imbriqués identiques, alignement par la boîte). Ces lignes sont taguées `[c]` (pratique établie) dans le catalogue.

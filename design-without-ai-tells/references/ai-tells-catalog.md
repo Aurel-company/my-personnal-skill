@@ -2,7 +2,7 @@
 
 Chaque entrée : **tell** → why it reads as AI → what to do instead.
 Severity: **P0** noticed by anyone, **P1** noticed by designers/developers, **P2** craft.
-Sources numbered `[n]` are listed in [sources.md](sources.md).
+Sources numbered `[n]` are listed in [sources.md](sources.md). Rows tagged `[c]` come from established craft practice rather than the research sources; the `interface-craft` skill details their implementation.
 
 ## 1. Typography
 
@@ -18,6 +18,10 @@ Sources numbered `[n]` are listed in [sources.md](sources.md).
 | Oversized hero headline, crushed letter spacing | Fills space with size instead of content [5] | Size from content and hierarchy; normal tracking | P1 |
 | Flat hierarchy (everything similar size/weight) | Nothing prioritised [5][6] | Clear 3-level hierarchy: one dominant element per view | P1 |
 | Line length too long, tight line height, justified text | Unreviewed defaults [5] | 60–75 characters, 1.4–1.6 body leading, left-aligned | P2 |
+| Headlines that break badly: one orphan word on the last line, ragged or accidental line breaks | Browser default wrapping never reviewed [c] | `text-wrap: balance` on headlines and short copy, `text-wrap: pretty` on paragraphs; never fix with manual `<br>` | P2 |
+| Proportional digits in tables, prices, timers, counters and stats | Default figures make columns misalign and live numbers jitter [c] | `font-variant-numeric: tabular-nums`, right-align numeric columns | P2 |
+| Monospace used as decoration (labels, headings, buttons, "technical" flavor) | Cheap shortcut to a "developer" look [3][c] | Mono only where it does work: code, IDs, keyboard shortcuts, data that must align. Everything else in the chosen text face | P1 |
+| Redundant labels: a label repeating its placeholder or icon, an eyebrow repeating its heading, "Price: $9", a section named after its only content | Filler text added by reflex [c] | Keep a label only if it adds information the layout does not already give; delete the rest | P1 |
 
 ## 2. Color
 
@@ -49,6 +53,8 @@ Sources numbered `[n]` are listed in [sources.md](sources.md).
 | Everything visible at once | No progressive disclosure [6] | Reveal by step according to user journey | P1 |
 | Email sign-up at the end of every page | Reflex CTA [5] | Only where it serves the page's goal | P1 |
 | Hero that does not fit its screen, empty frames, one column stretching the first viewport | Unreviewed layout [3][5] | Check at real viewport sizes with real content | P1 |
+| Related items split by lines and boxes while unrelated items sit at the same gap | Containers used instead of proximity; flat rhythm [5][c] | Group with spacing: tight inside a group, clearly larger between groups; add a divider or box only if space is not enough | P1 |
+| Competing buttons of equal weight, or the main CTA lost among cards and links | Every action styled the same, no priority [5][6][c] | One primary action per view: largest, highest contrast, in the accent color; secondary as outline or text link; repeat the same primary label, do not multiply CTAs | P1 |
 
 ## 4. Components and surfaces
 
@@ -63,6 +69,9 @@ Sources numbered `[n]` are listed in [sources.md](sources.md).
 | Fake window dots, pulsing status dot, blinking cursor | Decorative "tech" cues [3][5] | Remove unless they carry real status | P0 |
 | Stock effect libraries (Aceternity, Magic UI) dropped in | Recognisable motion/FX [3] | Build the one effect the design needs | P1 |
 | Missing focus states, tiny hit areas | Floor failure [3][8] | Visible focus, 44px targets | P0 (floor) |
+| Decorative badges, pills and filter chips scattered on cards and headers ("New", "Popular", category chips with no function) | Garnish that adds noise, not information [1][3][c] | Delete them. Keep a chip only if it filters, toggles or encodes a real status, and then style it as a control | P1 |
+| Nested rounded elements with the same radius on parent and child | One radius token reused at every level, corners look thick and pinched [c] | Inner radius = outer radius − padding (− border width if any), clamped at 0; derive it with `calc()` | P2 |
+| Elements centered mathematically but off to the eye: play triangle, icon in a button, text in a pill, mixed baselines | Alignment by box, not by perception [c] | Align by eye: shift asymmetric shapes, centre text on x-height/cap-height, align baselines across mixed icon and text rows | P2 |
 
 ## 5. Motion
 
