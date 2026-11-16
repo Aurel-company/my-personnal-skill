@@ -1,6 +1,6 @@
 ---
 name: interface-craft
-description: Apply fine-grained interface craft when building or reviewing UI — typography (kerning, tracking, leading, x-height, line length, widows, tabular numbers), geometry (optical centre, touch targets, safe areas), color (OKLCH), motion (origin-aware, staggered, interruptible, shared element transitions) and interaction (affordance, combobox, optimistic updates, progressive disclosure, layout shift). Use when polishing a component, auditing UI details, or when something "feels off" but is hard to name.
+description: Apply fine-grained interface craft when building or reviewing UI — typography (kerning, tracking, leading, x-height, line length, widows, tabular numbers), geometry (optical centre, concentric radius, matched icon weight, touch targets, safe areas, dynamic viewport), color and surfaces (OKLCH palettes and gradients, alpha borders, masked edges, dark mode depth), motion (origin-aware, staggered, interruptible, shared element and blurred icon swap transitions) and interaction (affordance, combobox, optimistic updates, progressive disclosure, layout shift). Use when polishing a component, auditing UI details, or when something "feels off" but is hard to name.
 ---
 
 # Interface craft
@@ -50,7 +50,7 @@ Apply a concept only when the interface actually contains the situation (no stag
 
 ---
 
-## 2. Geometry and touch
+## 2. Geometry, icons and touch
 
 ### Optical centre
 - **Rule**: mathematical centre is not perceived centre. Shapes with visual weight or asymmetry look off when centred by the box.
@@ -60,6 +60,28 @@ Apply a concept only when the interface actually contains the situation (no stag
   - Text in buttons: align on the **x-height / cap-height centre**, not the line box. A slightly smaller top padding than bottom (e.g. 10px / 12px) often looks centred; `text-box-trim: trim-both` with `text-box-edge: cap alphabetic` does it properly where supported.
   - Content placed in a hero or modal: sit it slightly **above** geometric centre (about 45% from the top, not 50%).
 - **Failure**: a play icon that looks pushed left; text that sits low in its button.
+
+### Concentric radius
+- **Rule**: when a rounded element sits inside another rounded element, their corners must share the same centre: **outer radius = inner radius + the distance between the two edges** (the padding, plus the border width if the parent has a border). Example: inner 8px + padding 12px → outer 20px.
+- **Apply**: derive the inner radius, never type it twice.
+  ```css
+  .card { --r-outer: 20px; --pad: 12px;
+          border-radius: var(--r-outer); padding: var(--pad); }
+  .card > .inner { border-radius: max(0px, calc(var(--r-outer) - var(--pad))); }
+  ```
+  With a parent border: subtract `padding + border-width`. Use it for image in card, button in container, input groups, segmented controls, nested menus; chain it for three levels. The formula is not needed when a radius is 0 or fully round (pill, circle). If padding is larger than the outer radius, the inner radius clamps to 0 (square), which is correct. Sheets and cards near a device edge should follow the same logic against the screen corner.
+- **Failure**: the same radius token on parent and child: the gap looks thick in the corners and thin on the sides, the inner shape looks pinched.
+
+### Matched icon weight
+- **Rule**: an icon's stroke must carry the **same visual weight as the text beside it**. Thin icons next to semibold text look faint; heavy icons next to light text look clunky. Font weight and stroke width are different systems: judge the apparent emphasis in the real component, not the numbers alone.
+- **Apply**:
+  - Starting points (verify against your font): **1.5px stroke beside regular text, 2px beside semibold**. At 16px a regular sans has stems of about 1.5px.
+  - Use SVG icons with a controllable `stroke-width` (Lucide, Phosphor weights) or a variable icon font with a weight axis (Material Symbols). Classic icon fonts have one weight.
+  - One stroke width for the whole set; never mix outline and solid icons in one row.
+  - Scaling an SVG with `width/height` scales its stroke too (a 24px icon shown at 16px gets 1.33px). Set `stroke-width` per size, or use `vector-effect: non-scaling-stroke` / Lucide's `absoluteStrokeWidth`.
+  - Size the icon to the text line (16px icon with 14px text, 20px with 16px) and centre it on the text's x-height / cap-height, not the line box (see optical centre).
+  - Check at the real size on 1x and 2x screens, never zoomed in.
+- **Failure**: 2px chunky icons beside a light 400 caption; icons that thin out when scaled down; a set that mixes strokes.
 
 ### Touch target
 - **Rule**: interactive targets are at least **44×44 px** (Apple HIG) or **48×48 dp** (Material); WCAG 2.2 AA minimum is 24×24 CSS px with spacing. Pick 44px as the default.
@@ -71,11 +93,23 @@ Apply a concept only when the interface actually contains the situation (no stag
 - **Apply**: `<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">`, then pad with `env(safe-area-inset-top|right|bottom|left)`. Combine with your own spacing: `padding-bottom: max(16px, env(safe-area-inset-bottom))`. Fixed bottom bars, tab bars, sheets and sticky CTAs always need it. Backgrounds may extend edge to edge; interactive content stays inside. Use `dvh`, not `vh`, for full-height layouts on mobile.
 - **Failure**: a bottom button under the home indicator; landscape content clipped by the notch.
 
+### Dynamic viewport
+- **Rule**: on mobile, `100vh` equals the **largest** viewport (browser toolbars retracted), so a full-height layout is cut off while the toolbar is visible. Choose the unit by intent: **`svh`** (small: toolbars shown, always fits), **`lvh`** (large: toolbars hidden, same as legacy `vh`), **`dvh`** (dynamic: follows the current state as toolbars show and hide). On desktop all three equal `vh`.
+- **Apply**:
+  - Hero or landing section that must not jump while scrolling → `min-height: 100svh`.
+  - App shell, chat, full-screen sheet or modal that should fill exactly what is visible → `100dvh`.
+  - A background that must always cover the screen → `lvh`.
+  - Fallback for older browsers: `height: 100vh; height: 100dvh;`. Prefer `min-height` to `height` so content can grow.
+  - `dvh` re-lays out while the toolbar animates: avoid it on heavy, animated or text-reflowing elements.
+  - `dvh` does not react to the on-screen keyboard. Where supported use `interactive-widget=resizes-content` in the viewport meta, or the `visualViewport` API, for inputs pinned to the bottom.
+  - Combine with safe-area padding; test on a real phone.
+- **Failure**: a primary button hidden under the browser toolbar because of `100vh`; a hero that jumps on every scroll because `dvh` was used where `svh` was needed.
+
 ---
 
-## 3. Color
+## 3. Color, surfaces and depth
 
-### OKLCH
+### OKLCH palettes
 - **Rule**: define color in **OKLCH** (`oklch(L C H)`), a perceptually uniform space: equal lightness steps look equal, and changing hue does not change perceived brightness the way it does in HSL.
 - **Apply**:
   - Build scales by **stepping L** with C and H nearly constant, then lower C at the extremes (very light and very dark colors cannot hold high chroma).
@@ -84,7 +118,56 @@ Apply a concept only when the interface actually contains the situation (no stag
   - Derive hover, active, disabled and dark mode by shifting L, not by guessing hex.
   - Tint neutrals with the brand hue at tiny chroma (C ≈ 0.005–0.02) so grays belong to the palette.
   - Provide a fallback when needed: `color: #3b82f6; color: oklch(62% 0.19 255);` and use `color-mix(in oklch, …)` for blends.
-- **Failure**: HSL palettes where yellow looks bright and blue looks dark at the same "lightness"; gradients that turn gray in the middle (interpolate with `in oklch`).
+- **Failure**: HSL palettes where yellow looks bright and blue looks dark at the same "lightness"; a generated scale that looks accessible but was never contrast-checked; out-of-gamut colors that get clipped and flatten.
+
+### OKLCH gradients
+- **Rule**: always say which color space a gradient interpolates in. The default (sRGB) makes mixes between distant colors dull, gray or dark in the middle (blue to yellow is the classic). **`in oklch`** (or `in oklab`) keeps lightness and chroma steady, so transitions stay clean and vivid.
+- **Apply**:
+  ```css
+  background: linear-gradient(in oklch, oklch(0.7 0.15 250), oklch(0.85 0.15 90));
+  ```
+  - Hue path in OKLCH: `shorter` is the default (blue to red goes through purple). Add `longer hue` for a rainbow or iridescent sweep; `increasing hue` / `decreasing hue` force the direction.
+  - Use `in oklab` for a straight blend with no hue detour (neutral to color, or two close colors).
+  - When one end is gray, OKLCH takes the hue from the other end, so there is no detour.
+  - Fade to transparent with the same color at zero alpha (`oklch(0.7 0.15 250 / 0)`) so the fade does not drift in hue.
+  - The same method works in `conic-gradient`, `radial-gradient` and `color-mix(in oklch, …)`.
+  - Keep chroma inside the gamut you target; out-of-gamut stops are clipped and create flat bands. Large soft gradients can show banding: add a faint grain.
+- **Failure**: a muddy gray band in the middle of a blue to yellow gradient; a brand gradient that turns purple on the way because of an unintended hue path.
+
+### Alpha borders
+- **Rule**: draw borders, dividers and outlines with a **semi-transparent** color (black or white at low alpha) instead of an opaque gray, so they adapt to whatever is under them: tinted cards, hover states, light and dark mode.
+- **Apply**:
+  - Light: `border: 1px solid oklch(0 0 0 / 0.08)`. Dark: `oklch(1 0 0 / 0.1)`. Tokens: `--border-subtle` 6-8%, `--border` 10-14%, `--border-strong` ~20%.
+  - There is no `border-opacity` property, and `opacity` would fade the whole element: put the alpha in the color.
+  - A background paints under the border by default, which makes a translucent border look solid. Use `background-clip: padding-box` when you need the true alpha (translucent or glass surfaces).
+  - Images: add a hairline inset outline so their edge does not melt into a similar background: `outline: 1px solid oklch(0 0 0 / 0.1); outline-offset: -1px;`.
+  - Adjacent translucent borders stack and look doubled: use one divider or a `gap` instead of two borders.
+- **Failure**: opaque `#ddd` borders that look heavy on a tinted card and glow in dark mode; double-thick lines where translucent borders overlap.
+
+### Masked edges
+- **Rule**: to soften where content is clipped or continues, **mask the content's alpha** with a gradient instead of laying a colored gradient on top. A mask removes pixels, so it works on any background, image, theme or hover state; an overlay must match the background color exactly.
+- **Apply**:
+  ```css
+  .fade {
+    -webkit-mask-image: linear-gradient(to bottom, transparent, #000 24px, #000 calc(100% - 24px), transparent);
+            mask-image: linear-gradient(to bottom, transparent, #000 24px, #000 calc(100% - 24px), transparent);
+  }
+  ```
+  - Use for scroll lists, tab rows, marquees, carousels, clamped text, image bottoms. Fade length 16-32px. Safari needs the `-webkit-` prefix.
+  - Fade an edge only when more content lies beyond it, so the first and last items are fully visible at the ends of the scroll. Scroll-driven animation (`animation-timeline: scroll(self y)`) can animate the mask size; keep a static fade as fallback.
+  - A mask on the scroll container fades its scrollbar too: hide the scrollbar or put the mask on an inner wrapper.
+  - Never let a fade hide content the user cannot otherwise reach or read.
+- **Failure**: a white gradient overlay that shows as a band on a tinted card or in dark mode; a list cut hard at the edge with no hint that it scrolls.
+
+### Dark mode depth
+- **Rule**: in dark mode shadows barely show against a dark surface, so **elevation is expressed by lightness**: the closer a surface is to the user, the lighter it is. Keep real shadows only as a supplement for floating layers (popovers, modals).
+- **Apply**:
+  - Define surface tokens by elevation, one step of about **4-6% lightness** (OKLCH: ΔL ≈ 0.03-0.05): `--bg: oklch(0.16 0.01 260)`, `--surface-1: oklch(0.20 0.01 260)`, `--surface-2: oklch(0.24 0.01 260)`, `--surface-3: oklch(0.28 0.01 260)`. Keep the same elevation order as light mode (modal is highest).
+  - Avoid pure `#000` backgrounds and pure `#fff` text (use text around L 0.92-0.95): harsh contrast and halation.
+  - Separate layers with alpha borders (white 8-12%) and, optionally, a 1px top highlight: `box-shadow: inset 0 1px 0 oklch(1 0 0 / 0.06)`.
+  - Lower chroma on large colored areas and raise lightness on accent text so it keeps its contrast.
+  - Do not invert the light palette: re-derive dark tokens. Do not fake elevation with light glows.
+- **Failure**: the light-mode box-shadow reused unchanged so every card looks flat; all surfaces the same black; a neon-saturated palette copied from light mode.
 
 ---
 
@@ -111,6 +194,18 @@ Default budget: **150–250 ms** for UI feedback, **250–400 ms** for large sur
 - **Rule**: when the same thing exists in two views (a card → its detail page, a thumbnail → full image), **morph one into the other** so the user tracks identity across the change.
 - **Apply**: the **View Transitions API** (`document.startViewTransition`, `view-transition-name` unique per element per page; cross-document with `@view-transition { navigation: auto }`), or Motion's `layoutId`. Match aspect ratio and radius, or animate them. Keep it under ~400 ms, make it reversible (back morphs back), and have a plain crossfade as fallback. Only the shared element morphs; the rest of the page fades.
 - **Failure**: a card that cuts to a new page with no continuity; two elements sharing the same `view-transition-name`.
+
+### Blurred icon swap
+- **Rule**: when an icon changes in place (copy → check, play → pause, menu → close, theme toggle), neither hard-cut nor plain-crossfade it. **Scale, blur and fade** the outgoing and incoming icons so two different shapes read as one object changing state: the blur hides the moment where both glyphs overlap.
+- **Apply**:
+  - Stack both icons in the same fixed-size box (`display: grid` with both in `grid-area: 1 / 1`, or absolute positioning).
+  - Exiting icon: opacity 1 → 0, scale 1 → ~0.25-0.6, blur 0 → 2-4px. Entering icon: the reverse.
+  - Duration about **150-200 ms**, ease-in-out or a spring. One `transition` on `opacity, transform, filter`, never `transition: all`.
+  - Swap with a changed `key` (React + Motion `AnimatePresence`) or a `data-state` attribute in CSS. Use transitions so rapid clicks retarget (see interruptible animation).
+  - Reduced motion: opacity only, no scale or blur.
+  - Keep blur small and on small elements: large blurred areas are GPU-costly on low-end phones.
+  - The swap is visual only: update the accessible name or announce the state ("Copied") as well.
+- **Failure**: an instant swap that flickers; a plain crossfade showing two half-visible glyphs; layout shift because the two icon boxes differ in size.
 
 ---
 
@@ -161,9 +256,9 @@ Default budget: **150–250 ms** for UI feedback, **250–400 ms** for large sur
 ### Reviewing
 Go through the screen and report each issue as: **concept → location → what is wrong → concrete fix**. Order by severity:
 
-- **P0 (breaks use)**: touch target < 24px, content under the safe area, layout shift on a primary action, combobox/menu unusable by keyboard, animation that blocks input, destructive optimistic update.
-- **P1 (felt by everyone)**: line length > 80ch, jittering numbers, orphan words in headings, non-interruptible transitions, missing affordance or states, wrong transform-origin.
-- **P2 (felt by designers)**: kerning on display type, optical centre of icons, x-height matching, stagger timing, OKLCH scale tuning.
+- **P0 (breaks use)**: touch target < 24px, content under the safe area, primary action hidden by `100vh` under the mobile toolbar, layout shift on a primary action, combobox/menu unusable by keyboard, animation that blocks input, destructive optimistic update.
+- **P1 (felt by everyone)**: line length > 80ch, jittering numbers, orphan words in headings, non-interruptible transitions, missing affordance or states, wrong transform-origin, dark mode with flat identical surfaces, gradients with a gray middle, colored overlays instead of masks over variable backgrounds.
+- **P2 (felt by designers)**: kerning on display type, optical centre of icons, x-height matching, stagger timing, OKLCH scale tuning, concentric radii, icon stroke vs text weight, alpha border levels, blurred icon swaps.
 
 ### Final check
 - Can every target be hit with a thumb, with space between neighbours?
@@ -172,3 +267,6 @@ Go through the screen and report each issue as: **concept → location → what 
 - Do numbers stay still when they change?
 - Is each paragraph readable at its width and leading, with no lone last word?
 - Is everything essential visible, and everything else one clear step away?
+- Do nested rounded shapes share a centre, and do icons match the weight of their text?
+- Do borders, fades and gradients still look right on every background and in dark mode?
+- Does the layout fit with the mobile toolbar both shown and hidden?
