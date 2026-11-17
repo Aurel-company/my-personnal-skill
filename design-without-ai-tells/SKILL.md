@@ -38,7 +38,7 @@ While building, keep the catalog open: [references/index.md](references/index.md
 
 ### 3. Audit before you ship
 
-Run the pre-ship questions, then fix in the order given in [references/index.md](references/index.md) (P0 first). The severity of each tell is in the catalog.
+Run the pre-ship questions, then fix in the order given in [references/index.md](references/index.md) (P0 first). The severity of each tell is in the catalog. For the P2 craft fixes, call the Skill tool with "interface-craft" if it is not already loaded in this conversation (if it is not available, continue without it) and apply its matching concepts.
 
 Pre-ship questions:
 
@@ -49,10 +49,20 @@ Pre-ship questions:
 5. Are the unhappy paths (empty, loading, error, long text, no data) designed?
 6. Does it still work with keyboard only, at phone width, with reduced motion, and in both themes if both exist?
 
+If question 1 fails (the page could belong to a competitor), the direction is too generic: call the Skill tool with "creative-design" if it is not already loaded (if it is not available, continue without it) to widen the options, then rewrite the direction before fixing details.
+
 ## When reviewing existing work
 
 Report findings as: tell, where it is, why it reads as AI, concrete replacement. Group by P0/P1/P2. Do not rewrite what the user did not ask to change, and do not strip intentional choices: ask when unsure.
 
-## Pairing
+## Skill links
 
-This skill is about what to **avoid** and how to **decide**. It does not replace a full design process: pair it with a product-design pass for flows and states, and with a detector (a linter or a rendered-page scan) when one is available. For how to implement the craft fixes (concentric radius, tabular numbers, headline wrapping, optical alignment, OKLCH, alpha borders), use the `interface-craft` skill; for motion that gives useful feedback, use `app-motion`.
+**Calls** (mandatory, at the steps named above):
+- `interface-craft`: applies the P2 craft fixes at the audit.
+- `creative-design`: widens the options when the direction is too generic (pre-ship question 1).
+
+**Related** (only when the situation appears, no automatic call):
+- `responsive-web-app`: for the "working phone layout" floor.
+- `app-motion`: for motion that gives useful feedback instead of the same fade-up everywhere.
+
+Outside this repo: this skill is about what to **avoid** and how to **decide**. It does not replace a full design process: pair it with a product-design pass for flows and states, and with a detector (a linter or a rendered-page scan) when one is available.

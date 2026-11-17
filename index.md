@@ -26,6 +26,7 @@ Qui appelle qui. **Appel** = une étape du workflow appelle le skill avec l'outi
 | design-without-ai-tells | interface-craft | **Appel** | Audit P2 « craft » : appliquer les corrections |
 | design-without-ai-tells | creative-design | **Appel** | La question pré-livraison n°1 échoue : élargir les pistes |
 | design-without-ai-tells | responsive-web-app | souple | Socle « layout téléphone » |
+| design-without-ai-tells | app-motion | souple | Feedback animé utile plutôt qu'un même fade-up partout |
 | creative-design | design-without-ai-tells | **Appel** | Checks avant livraison : l'idée n'est pas un défaut de second ordre |
 | creative-design | interface-craft | souple | OKLCH, lisibilité, animation de l'effet |
 | app-motion | interface-craft | souple | Détails d'animation (origine, interruptible, stagger) |
