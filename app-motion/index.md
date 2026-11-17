@@ -18,7 +18,7 @@ Se déclenche quand tu ajoutes, règles ou audites de l'animation dans une app, 
 
 ## Dépendances
 
-Aucune. Se combine avec `interface-craft` (détails : origine, interruptible, stagger, éléments partagés), `apple-design` (mouvement fluide et physique) et `design-without-ai-tells` (fade-in partout).
+Aucun appel obligatoire. Renvois souples vers `interface-craft` (détails : origine, interruptible, stagger, éléments partagés), `apple-design` (mouvement fluide et physique) et `design-without-ai-tells` (fade-in partout).
 
 ## Installation
 

@@ -30,6 +30,7 @@ Qui appelle qui. **Appel** = une étape du workflow appelle le skill avec l'outi
 | creative-design | design-without-ai-tells | **Appel** | Checks avant livraison : l'idée n'est pas un défaut de second ordre |
 | creative-design | interface-craft | souple | OKLCH, lisibilité, animation de l'effet |
 | app-motion | interface-craft | souple | Détails d'animation (origine, interruptible, stagger) |
+| app-motion | design-without-ai-tells | souple | Même fade-in générique partout |
 | app-motion | apple-design | souple | Gestes, drag, mouvement physique |
 | responsive-web-app | interface-craft | souple | Détails tactiles (safe area, `dvh`, cibles) |
 | responsive-web-app | design-without-ai-tells | souple | Style visuel, que ce skill ne décide pas |
