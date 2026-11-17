@@ -14,6 +14,27 @@ Liste de tous les skills du repo. Chaque entrée renvoie vers l'`index.md` du sk
 | [creative-design](creative-design/index.md) | Pousser un design vers la créativité : bibliothèque d'idées (21 fonds créatifs) et recherche web | perso |
 | [app-motion](app-motion/index.md) | Animation d'app pour maximiser l'UX : 17 règles de motion, 12 principes Disney, 7 lois d'UX | perso |
 
+## Interconnexions
+
+Qui appelle qui. **Appel** = une étape du workflow appelle le skill avec l'outil Skill ; **souple** = simple renvoi, chargé seulement si la situation se présente. Un seul sens d'appel par paire, pas de boucle. Détail dans la section `Skill links` de chaque `SKILL.md`.
+
+| De | Vers | Type | Quand |
+|----|------|------|-------|
+| interface-craft | design-without-ai-tells | **Appel** | *Building* avant d'appliquer les concepts (direction), puis en relecture finale (signes restants) |
+| interface-craft | app-motion | souple | Un concept de la section Motion s'applique (budget selon la fréquence d'usage) |
+| interface-craft | responsive-web-app | souple | Safe area, `dvh`, zones tactiles : la question dépasse le détail |
+| design-without-ai-tells | interface-craft | **Appel** | Audit P2 « craft » : appliquer les corrections |
+| design-without-ai-tells | creative-design | **Appel** | La question pré-livraison n°1 échoue : élargir les pistes |
+| design-without-ai-tells | responsive-web-app | souple | Socle « layout téléphone » |
+| creative-design | design-without-ai-tells | **Appel** | Checks avant livraison : l'idée n'est pas un défaut de second ordre |
+| creative-design | interface-craft | souple | OKLCH, lisibilité, animation de l'effet |
+| app-motion | interface-craft | souple | Détails d'animation (origine, interruptible, stagger) |
+| app-motion | apple-design | souple | Gestes, drag, mouvement physique |
+| responsive-web-app | interface-craft | souple | Détails tactiles (safe area, `dvh`, cibles) |
+| responsive-web-app | design-without-ai-tells | souple | Style visuel, que ce skill ne décide pas |
+
+`apple-design` n'a aucun lien sortant (skill tiers).
+
 ## Légende
 
 - **Origine** : `perso` si je l'ai créé, sinon le nom de l'auteur ou de la source.
