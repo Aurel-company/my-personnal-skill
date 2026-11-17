@@ -16,8 +16,6 @@ The concrete material lives in `references/`, so it can be updated without touch
 - [references/disney-principles.md](references/disney-principles.md): the Disney animation principles translated to UI.
 - [references/ux-laws.md](references/ux-laws.md): UX laws and what they mean for motion.
 
-Related skills: `interface-craft` (details such as origin-aware, interruptible, stagger, shared element), `apple-design` (physical, fluid motion), `design-without-ai-tells` (generic fade-in-everything).
-
 ## Workflow
 
 ### 1. Ask how often it happens (frequency of use)
@@ -70,3 +68,10 @@ For an audit, report each finding as: **element → what it does now → recomme
 - Are entrances ease-out, moves ease-in-out, exits shorter, and nothing bouncy in everyday UI?
 - Can every animation be interrupted, and does input stay responsive during it?
 - Is there a reduced-motion path, and is the whole app using the same easings and durations?
+
+## Skill links
+
+No mandatory calls. **Related** (only when the situation appears):
+- `interface-craft`: details such as origin-aware, interruptible, stagger, shared element, blurred icon swap.
+- `apple-design`: physical, fluid motion for gestures, drag, springs and momentum.
+- `design-without-ai-tells`: when the motion is the same generic fade-in on everything.
