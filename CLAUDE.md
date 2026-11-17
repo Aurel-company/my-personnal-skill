@@ -17,5 +17,8 @@
 - Chaque `references/` a un `index.md` qui liste chaque ressource (une ligne, son fichier, sa gravité si pertinent). `SKILL.md` pointe vers cet index, jamais vers le détail d'un concept : ajouter une ressource = ajouter un bloc/fichier + une ligne d'index, sans éditer `SKILL.md`.
 - Quand on déplace du contenu vers `references/`, le texte est déplacé tel quel (pas de réécriture, pas de perte).
 - Les commandes d'installation de l'`index.md` du skill doivent copier `references/` en plus de `SKILL.md` (`cp -r SKILL.md references …`).
+- **Liens entre skills.** Deux types : l'**appel obligatoire** (une étape du workflow dit « appelle le skill X ») et le **renvoi souple** (une ligne « quand penser à X »). Un lien se déclare dans la section `## Skill links` du `SKILL.md` du skill appelant **et** dans la table « Interconnexions » de `index.md` à la racine, dans la même PR.
+- Règles des appels obligatoires : un seul sens par paire (le skill appelé ne rappelle jamais l'appelant en obligatoire, seulement en souple) ; formule « si le skill n'est pas déjà chargé dans cette conversation, appelle-le avec l'outil Skill ; s'il n'est pas disponible, continue sans » ; peu d'appels, chaque appel charge du contexte.
+- `apple-design` n'est pas un skill à moi : les autres peuvent le citer, mais il ne renvoie vers personne.
 - Toute nouvelle entrée de skill est ajoutée à `index.md` à la racine dans la même PR.
 - Les crédits (auteurs, source, licence) sont obligatoires pour chaque skill.
