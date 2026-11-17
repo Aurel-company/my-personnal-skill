@@ -9,10 +9,12 @@ Motion in an app exists to serve the user, in this order: **feedback** (I was he
 
 **Everything below is a recommendation, not an obligation.** The numbers are starting points. Deviate when the product, brand or context calls for it, and when you do, say why in one line. Never apply a rule just to apply it; never add motion that does not serve one of the five purposes above.
 
-References (read the one you need):
-- [references/ui-motion-rules.md](references/ui-motion-rules.md): 17 concrete rules with values and code.
-- [references/disney-principles.md](references/disney-principles.md): 12 animation principles translated to UI.
-- [references/ux-laws.md](references/ux-laws.md): 7 UX laws and what they mean for motion.
+The concrete material lives in `references/`, so it can be updated without touching this file. Start with [references/index.md](references/index.md); it lists every rule, principle, law and recipe. Read only what you need:
+- [references/cheat-sheet.md](references/cheat-sheet.md): starting values by situation.
+- [references/component-recipes.md](references/component-recipes.md): one recipe per component.
+- [references/ui-motion-rules.md](references/ui-motion-rules.md): concrete rules with values, code and when to skip them.
+- [references/disney-principles.md](references/disney-principles.md): the Disney animation principles translated to UI.
+- [references/ux-laws.md](references/ux-laws.md): UX laws and what they mean for motion.
 
 Related skills: `interface-craft` (details such as origin-aware, interruptible, stagger, shared element), `apple-design` (physical, fluid motion), `design-without-ai-tells` (generic fade-in-everything).
 
@@ -35,23 +37,7 @@ Feedback, orientation, continuity, attention, or delight. If you cannot name one
 
 ### 3. Pick values from the cheat sheet
 
-| Situation | Starting point |
-|-----------|----------------|
-| Entrance | ease-out (fast start, soft landing) |
-| Move between positions on screen | ease-in-out |
-| Exit | about **20% shorter** than the entrance; keep it quick |
-| Dropdown, menu, select | **150-250 ms** |
-| Popover | start at **scale 0.95** + opacity 0, **enter from the trigger**, **exit to the trigger** |
-| Press | scale to **0.97**, ~100 ms in, spring back out |
-| List rows entering | stagger **30 ms** per row (cap around 8 rows) |
-| Moving toggle knob | stretch about **12%** while it travels |
-| Details around a main change | stagger so they **settle after** the main element |
-| Object moving across the screen | follow an **arc**, not a straight line |
-| Success confirmation | one **pulse** (scale 1 → ~1.05 → 1 or a ring) |
-| Everyday UI | **no bounce**; critically damped springs |
-| Held or dragged element | **do not tween**: follow the pointer 1:1, animate on release |
-| Old and new state | **overlap** them (crossfade), do not wait for one to finish |
-| Reveal or color change | use a **mask** (clip-path / mask-image / view transition) |
+Open [references/cheat-sheet.md](references/cheat-sheet.md) for the starting value that matches the situation (entrance, exit, dropdown, popover, press, list stagger, toggle, success, drag, reveal, and so on). Use the matching rule in [references/ui-motion-rules.md](references/ui-motion-rules.md) for the reason, the code and when to skip it.
 
 ### 4. Check against the UX laws
 
@@ -71,18 +57,7 @@ Feedback, orientation, continuity, attention, or delight. If you cannot name one
 
 ## Component recipes
 
-| Component | Recipe |
-|-----------|--------|
-| Button | press scale 0.97 at ~100 ms; hit area unchanged by the scale (scale a child); success → one pulse |
-| Dropdown / menu | opens from the trigger edge, 150-250 ms ease-out, items appear at once (or a very light stagger), closes ~20% faster toward the trigger |
-| Popover / tooltip | scale 0.95 → 1 + fade from the trigger, tooltips instant after the first one is open |
-| Modal / sheet | ease-out in 250-300 ms from its source (or from the bottom on mobile), exit ~20% shorter, backdrop fades with it |
-| Toggle / switch | knob moves with ease-in-out and stretches ~12%, track color changes at the same time |
-| List rows | stagger 30 ms on first load only, never on every re-render or on constant-use lists |
-| Toast | slides from its docked edge, short exit, pulse or icon draw on success |
-| Theme change | circular or linear mask reveal from the toggle |
-| Page / route | continuity first: shared element or directional slide matching navigation (forward vs back), 250-350 ms |
-| Drag | lift on grab (scale + shadow), 1:1 tracking while held, settle on release with the release velocity |
+For a button, dropdown, popover, modal, toggle, list, toast, theme change, page transition or drag, start from [references/component-recipes.md](references/component-recipes.md).
 
 ## Review format
 
