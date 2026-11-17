@@ -20,9 +20,10 @@ Each concept has: **what it is**, **the rule**, **how to apply it**, **the commo
 ## Workflow
 
 ### Building
-1. List which situations appear in the screen (text, numbers, tap targets, lists, overlays, async actions, navigation between views).
-2. Open the index, pick the matching concepts, apply them; skip the rest.
-3. Encode values as **tokens** (type scale with tracking and leading, `--tap-min: 44px`, motion durations and easings, OKLCH palette) so the details are consistent rather than repeated.
+1. **Direction first** (new screen or component, not a one-line fix): call the Skill tool with "design-without-ai-tells" if it is not already loaded in this conversation, and settle its direction step before applying any concept. If it is not available, continue without it.
+2. List which situations appear in the screen (text, numbers, tap targets, lists, overlays, async actions, navigation between views).
+3. Open the index, pick the matching concepts, apply them; skip the rest.
+4. Encode values as **tokens** (type scale with tracking and leading, `--tap-min: 44px`, motion durations and easings, OKLCH palette) so the details are consistent rather than repeated.
 
 ### Reviewing
 Go through the screen and report each issue as: **concept → location → what is wrong → concrete fix**. Order by the severity given in the index:
@@ -32,6 +33,7 @@ Go through the screen and report each issue as: **concept → location → what 
 - **P2 (felt by designers)**: fine craft details.
 
 ### Final check
+- Last pass for AI tells: call the Skill tool with "design-without-ai-tells" if it is not already loaded (if it is not available, continue without it) and run its pre-ship questions on the result.
 - Can every target be hit with a thumb, with space between neighbours?
 - Does anything move that the user did not cause?
 - Does every animation start from its cause and survive being interrupted?
@@ -41,3 +43,12 @@ Go through the screen and report each issue as: **concept → location → what 
 - Do nested rounded shapes share a centre, and do icons match the weight of their text?
 - Do borders, fades and gradients still look right on every background and in dark mode?
 - Does the layout fit with the mobile toolbar both shown and hidden?
+
+## Skill links
+
+**Calls** (mandatory, at the steps named above):
+- `design-without-ai-tells`: direction before building, tells check at the final check.
+
+**Related** (only when the situation appears, no automatic call):
+- `app-motion`: as soon as a concept from the Motion category applies, to set the motion budget by how often the interaction happens.
+- `responsive-web-app`: when safe area, dynamic viewport or touch targets are part of a wider responsive question (breakpoints, tables, navigation).
