@@ -38,7 +38,7 @@ Copy-Item SKILL.md, references -Recurse "$HOME\.claude\skills\design-without-ai-
 
 **Cursor** : copier `SKILL.md` et `references/` dans `~/.cursor/skills/design-without-ai-tells/` (ou `.cursor/skills/design-without-ai-tells/` dans le projet).
 
-**Autre IA** : coller `SKILL.md` puis `references/ai-tells-catalog.md` dans les instructions personnalisées de l'outil.
+**Autre IA** : coller `SKILL.md`, puis `references/index.md` et `references/ai-tells-catalog.md`, dans les instructions personnalisées de l'outil.
 
 Utilisation : automatique, ou à la main avec `/design-without-ai-tells`.
 
@@ -55,13 +55,16 @@ Utilisation : automatique, ou à la main avec `/design-without-ai-tells`.
 
 | Fichier | Rôle |
 |---------|------|
-| `SKILL.md` | Le skill : règles, workflow en 3 étapes, questions d'audit (en anglais, pour l'IA) |
+| `SKILL.md` | Le noyau : règles, workflow en 3 étapes, questions d'audit (en anglais, pour l'IA) |
+| `references/index.md` | Index des ressources : signes principaux et ordre de correction P0/P1/P2 |
 | `references/ai-tells-catalog.md` | Catalogue complet : signe, pourquoi il fait « IA », remplacement, gravité |
 | `references/sources.md` | Sources de la recherche, dates, limites |
+
+Pour ajouter un signe : une ligne dans la bonne section du catalogue (avec sa gravité), et au besoin dans les listes de `references/index.md`. `SKILL.md` ne change pas.
 
 ## Crédits
 
 - **Auteur** : Aurel, avec Claude (synthèse originale, skill créé pour ce repo).
 - **Sources** : articles et skills publiés en 2026, détaillés dans `references/sources.md`. Principaux : Developers Digest, Utsubo (Jocelyn Lecamus), 925Studios, Kosta Canatselis, et les skills open source [avoid-ai-design](https://github.com/funboy322/avoid-ai-design) (funboy322, MIT), [Anti-Slop Design](https://github.com/Ferousco-dev/anti-slop-design) (Feranmi, MIT) et [Hallmark](https://github.com/nutlope/hallmark) (Together AI, MIT).
 - **Licence** : aucun texte des sources n'est copié ; seules les idées sont reprises et recoupées. Les licences des dépôts cités sont indiquées pour information.
-- **Modifications** : création initiale, puis ajout de 9 signes au catalogue (badges et pastilles décoratifs, labels redondants, regroupement par l'espacement, CTA concurrents, mono décoratif, chiffres proportionnels, titres mal coupés, rayons imbriqués identiques, alignement par la boîte). Ces lignes sont taguées `[c]` (pratique établie) dans le catalogue.
+- **Modifications** : création initiale, puis ajout de 9 signes au catalogue (badges et pastilles décoratifs, labels redondants, regroupement par l'espacement, CTA concurrents, mono décoratif, chiffres proportionnels, titres mal coupés, rayons imbriqués identiques, alignement par la boîte). Ces lignes sont taguées `[c]` (pratique établie) dans le catalogue. Les listes de signes principaux et l'ordre P0/P1/P2 ont ensuite été déplacés de `SKILL.md` vers `references/index.md` (texte inchangé).
