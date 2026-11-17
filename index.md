@@ -16,7 +16,7 @@ Liste de tous les skills du repo. Chaque entrée renvoie vers l'`index.md` du sk
 
 ## Interconnexions
 
-Qui appelle qui. **Appel** = une étape du workflow appelle le skill avec l'outil Skill ; **souple** = simple renvoi, chargé seulement si la situation se présente. Un seul sens d'appel par paire, pas de boucle. Détail dans la section `Skill links` de chaque `SKILL.md`.
+Qui appelle qui. **Appel** = une étape du workflow appelle le skill avec l'outil Skill ; **souple** = simple renvoi, chargé seulement si la situation se présente. Pas de boucle : un appel est ignoré si le skill est déjà chargé dans la conversation (garde « si pas déjà chargé »), ce qui permet des appels dans les deux sens à des étapes différentes. Détail dans la section `Skill links` de chaque `SKILL.md`.
 
 | De | Vers | Type | Quand |
 |----|------|------|-------|
