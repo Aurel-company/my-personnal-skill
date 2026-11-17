@@ -13,5 +13,9 @@
 
 - Un dossier = un skill, nommé en kebab-case, avec un `index.md` (description, installation, effets, crédits).
 - Partir de `_template/` pour créer un nouveau skill.
+- **`SKILL.md` = le noyau, `references/` = les ressources.** `SKILL.md` ne contient que les règles, le workflow, le format de relecture et les checks. Toute liste (concepts, bonnes pratiques, animations, valeurs, recettes, catalogue) va dans `<skill>/references/`, pour qu'on puisse la mettre à jour sans toucher au noyau.
+- Chaque `references/` a un `index.md` qui liste chaque ressource (une ligne, son fichier, sa gravité si pertinent). `SKILL.md` pointe vers cet index, jamais vers le détail d'un concept : ajouter une ressource = ajouter un bloc/fichier + une ligne d'index, sans éditer `SKILL.md`.
+- Quand on déplace du contenu vers `references/`, le texte est déplacé tel quel (pas de réécriture, pas de perte).
+- Les commandes d'installation de l'`index.md` du skill doivent copier `references/` en plus de `SKILL.md` (`cp -r SKILL.md references …`).
 - Toute nouvelle entrée de skill est ajoutée à `index.md` à la racine dans la même PR.
 - Les crédits (auteurs, source, licence) sont obligatoires pour chaque skill.

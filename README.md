@@ -20,19 +20,22 @@ my-personnal-skill/
 │   └── index.md
 └── <nom-du-skill>/  # Un dossier par skill, nommé en kebab-case
     ├── index.md     # Explication, installation, effets, crédits
-    ├── SKILL.md     # Le skill lui-même
-    └── ...          # Autres fichiers .md du skill (références, exemples)
+    ├── SKILL.md     # Le noyau du skill : règles, workflow, checks
+    └── references/  # Les ressources (listes, catalogues, valeurs, recettes)
+        ├── index.md # Index des ressources : mis à jour sans toucher à SKILL.md
+        └── ...      # Un fichier par catégorie ou par idée
 ```
 
 ## Ajouter un skill
 
 1. Copier `_template/` vers un nouveau dossier au nom clair (ex. `product-design`).
 2. Remplir `index.md` (description, installation, effets, crédits).
-3. Ajouter les fichiers `.md` du skill dans le dossier.
+3. Écrire `SKILL.md` (le noyau) et mettre toute liste de ressources dans `references/`, avec un `references/index.md`.
 4. Ajouter une ligne dans [`index.md`](index.md) à la racine.
 
 ## Règles
 
 - Un dossier = un skill.
+- `SKILL.md` = noyau stable ; `references/` = ressources faciles à mettre à jour.
 - Les crédits sont obligatoires : auteur(s), source, licence quand elle existe.
 - Pour un skill tiers, respecter sa licence et pointer vers la source d'origine.

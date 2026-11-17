@@ -13,9 +13,18 @@ Adapter selon l'outil.
 **Claude Code**
 
 ```bash
-# Copier le dossier du skill dans :
+# Copier SKILL.md et references/ dans :
 #   ~/.claude/skills/<nom-du-skill>/        (global)
 #   .claude/skills/<nom-du-skill>/          (projet)
+mkdir -p ~/.claude/skills/<nom-du-skill>
+cp -r SKILL.md references ~/.claude/skills/<nom-du-skill>/
+```
+
+**Windows (PowerShell)**
+
+```powershell
+New-Item -ItemType Directory -Force "$HOME\.claude\skills\<nom-du-skill>"
+Copy-Item SKILL.md, references -Recurse "$HOME\.claude\skills\<nom-du-skill>"
 ```
 
 **Cursor**
@@ -24,7 +33,7 @@ Adapter selon l'outil.
 # Copier dans ~/.cursor/skills/<nom-du-skill>/ ou .cursor/skills/<nom-du-skill>/
 ```
 
-**Autre IA** : copier le contenu de `SKILL.md` dans les instructions personnalisées de l'outil.
+**Autre IA** : copier le contenu de `SKILL.md`, puis `references/index.md` et les fiches utiles, dans les instructions personnalisées de l'outil.
 
 ## Effets
 
@@ -37,7 +46,9 @@ Ce que le skill change dans le comportement de l'IA :
 
 | Fichier | Rôle |
 |---------|------|
-| `SKILL.md` | Le skill principal |
+| `SKILL.md` | Le noyau du skill : règles, workflow, checks |
+| `references/index.md` | Index des ressources (listes, catalogues, valeurs) |
+| `references/*.md` | Les ressources, mises à jour sans toucher à `SKILL.md` |
 
 ## Crédits
 
