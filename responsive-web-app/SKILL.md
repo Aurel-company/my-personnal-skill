@@ -60,6 +60,10 @@ Run all of these and report what you checked:
 
 Report findings as: element or rule, viewport or condition where it fails, cause, concrete fix. Order by severity: loss of content or function (P0), user setting ignored such as zoom or text spacing (P1), friction (P2). Do not rewrite what was not asked.
 
-## Pairing
+## Skill links
 
-Pair with a product-design pass for flows and states, and with an accessibility check for anything beyond the responsive criteria. It does not decide visual style.
+No mandatory calls. **Related** (only when the situation appears):
+- `interface-craft`: the fine detail of touch targets, safe area and dynamic viewport units, when the question goes beyond the responsive criteria.
+- `design-without-ai-tells`: visual style and direction, which this skill does not decide.
+
+Outside this repo: pair with a product-design pass for flows and states, and with an accessibility check for anything beyond the responsive criteria.
