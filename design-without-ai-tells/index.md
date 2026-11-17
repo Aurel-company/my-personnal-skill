@@ -16,7 +16,7 @@ Se déclenche quand tu construis ou relis un front et que le résultat doit para
 
 ## Dépendances
 
-Aucune. Il se combine bien avec un skill de design produit (parcours, états), avec un détecteur automatique quand il y en a un, avec `interface-craft` (mise en œuvre des détails : rayons concentriques, chiffres tabulaires, retour à la ligne des titres, alignement optique) et avec `app-motion` (feedback animé utile).
+Appelle `interface-craft` (appel obligatoire à l'audit P2 : rayons concentriques, chiffres tabulaires, retour à la ligne des titres, alignement optique) et `creative-design` (appel obligatoire quand la direction est trop générique). Renvois souples vers `responsive-web-app` (socle téléphone) et `app-motion` (feedback animé utile). Se combine aussi avec un skill de design produit (parcours, états) et un détecteur automatique quand il y en a un. Si un skill lié n'est pas installé, `design-without-ai-tells` continue sans.
 
 ## Installation
 
