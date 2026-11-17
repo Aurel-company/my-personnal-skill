@@ -71,8 +71,18 @@ If research produced something reusable:
 
 ## Checks before delivering
 
+Call the Skill tool with "design-without-ai-tells" if it is not already loaded in this conversation (if it is not available, continue without it) and check that the result is not a second-order default (cream with terracotta, near-black with one acid accent, an accent word in the headline). An idea taken from this library is still a default if nobody chose it for the product.
+
 - Is there a one-sentence reason this technique belongs to this product?
 - Is the text readable at AA contrast on top of it, on desktop and phone?
 - Does it have a cheap fallback and a reduced-motion version?
 - Is any asset licensed for use, and is the source noted?
 - Would a competitor's page look the same with the effect removed? If yes, push further.
+
+## Skill links
+
+**Calls** (mandatory, at the step named above):
+- `design-without-ai-tells`: checks before delivering.
+
+**Related** (only when the situation appears, no automatic call):
+- `interface-craft`: OKLCH colors, text legibility on a texture, and the motion of the effect.
