@@ -18,7 +18,7 @@ Se déclenche quand tu polis un composant, audites des détails d'UI, ou qu'un �
 
 ## Dépendances
 
-Aucune. Se combine avec `design-without-ai-tells` (direction et signes à éviter) : celui-ci décide de l'allure, `interface-craft` règle les détails.
+Appelle `design-without-ai-tells` (appel obligatoire : direction avant de construire, vérification des signes « IA » en fin de relecture) : celui-ci décide de l'allure, `interface-craft` règle les détails. Renvois souples vers `app-motion` (budget d'animation) et `responsive-web-app` (questions responsive plus larges). Si un de ces skills n'est pas installé, `interface-craft` continue sans : les installer à côté pour profiter des liens.
 
 ## Installation
 
