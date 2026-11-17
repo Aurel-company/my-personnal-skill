@@ -15,7 +15,7 @@ Se déclenche quand tu veux un rendu plus créatif ou distinctif, que tu cherche
 
 ## Dépendances
 
-Aucune. Se combine avec `design-without-ai-tells` (éviter les signes « IA ») et `interface-craft` (détails de finition : OKLCH, lisibilité, animation). La recherche web utilise l'outil de recherche de l'IA.
+Appelle `design-without-ai-tells` (appel obligatoire aux checks avant livraison : l'idée ne doit pas devenir un défaut de second ordre). Renvoi souple vers `interface-craft` (détails de finition : OKLCH, lisibilité, animation). Si un de ces skills n'est pas installé, `creative-design` continue sans. La recherche web utilise l'outil de recherche de l'IA.
 
 ## Installation
 
