@@ -56,6 +56,7 @@ Utilisation : automatique, ou à la main avec `/web-to-mobile-app`.
 - Distingue ce qui est commun aux deux plateformes de ce qui doit suivre iOS ou Android.
 - Définit les états de chaque écran et ceux de l'app entière.
 - Termine par un résumé clair et une proposition d'implémentation par vagues d'agents.
+- Charge les références à la demande : lit l'index, puis seulement les fiches utiles à l'étape et au projet, jamais tout d'avance.
 - En relecture, rapporte : écran ou feature, problème, règle, correction, classés P0, P1, P2.
 
 ## Fichiers
@@ -72,6 +73,12 @@ Utilisation : automatique, ou à la main avec `/web-to-mobile-app`.
 | `references/platform-conventions.md` | Conventions iOS et Android |
 | `references/states.md` | États par écran et états globaux |
 | `references/implementation-waves.md` | Découpage en vagues et règles pour les agents |
+| `references/web-app-discovery.md` | Où trouver routes, layouts, API et permissions selon la stack web ; features cachées |
+| `references/native-capabilities.md` | Capacités natives : valeur, quand les ajouter, coût, permission, pièges |
+| `references/deep-linking.md` | Routes web vers écrans, Universal Links et App Links, routage des push, cas limites |
+| `references/offline-and-sync.md` | Niveaux d'offline, cache, mises à jour optimistes, file d'actions, conflits |
+| `references/mobile-anti-patterns.md` | Signes « ça sent le site web », avec correction et gravité |
+| `references/agent-brief-template.md` | Brief type à donner à chaque agent d'une vague |
 | `references/sources.md` | Sources et fiabilité |
 
 ## Crédits

@@ -9,7 +9,11 @@ A mobile app is a different product, not a shrunken website. Sessions are short,
 
 If the user only wants the web app to work on phones, this is the wrong skill: see `responsive-web-app`.
 
-Everything concrete (patterns, conventions, question banks, templates) lives in `references/`. Start with [references/index.md](references/index.md).
+Everything concrete (patterns, conventions, question banks, templates) lives in `references/`. Load it lazily:
+- Never load all references up front. At the start of a step, read only [references/index.md](references/index.md), then only the files whose **Read when** matches the project's real situation.
+- Read a file when the step needs it, not before. For a long file, read only the useful section (files over ~100 lines open with a table of contents).
+- Do not re-read a file already read in this conversation; the decision it led to is in the contract.
+- When the project is not concerned (no tablet, no offline requirement…), do not open the file.
 
 ## Operating rules
 
@@ -17,24 +21,24 @@ Everything concrete (patterns, conventions, question banks, templates) lives in 
 - **The contract is the source of truth.** Every validated decision is written to the contract file. Re-read the contract at the start of every step and before answering any question about earlier decisions. Never rely on conversation memory alone.
 - **Changes propagate.** When the user revises an earlier decision, update the contract, then list the later steps it affects and revisit only those.
 - **Read the code, not just the user.** When the web app's code is available, the inventory comes from routes, pages, components and API calls; the user corrects it, they do not have to dictate it.
-- **Justify every "adapt" and "replace".** Name the precise mobile problem (hover, density, wide table, keyboard shortcut, long form, multi-window) and propose a concrete solution from [references/web-to-native-patterns.md](references/web-to-native-patterns.md).
+- **Justify every "adapt" and "replace".** Name the precise mobile problem (hover, density, wide table, keyboard shortcut, long form, multi-window) and propose a concrete solution; read [references/web-to-native-patterns.md](references/web-to-native-patterns.md) when the native equivalent is not obvious.
 - **Platform-correct, not platform-identical.** Share logic and design language; let navigation, back behavior, sheets, pickers and typography follow each platform.
 
 ## Workflow
 
 ### 0. Framing
 
-Read the web app (routes, pages, components, API). Ask what is not in the code: target platforms (iOS, Android, both), mobile stack (React Native, Flutter, native), who uses the mobile app and in what situation. Create the contract from [references/contract-template.md](references/contract-template.md) at `docs/mobile-transposition/CONTRACT.md` (or where the user prefers) and fill in the framing section.
+Read the web app (routes, pages, components, API). Ask what is not in the code: target platforms (iOS, Android, both), mobile stack (React Native, Flutter, native), who uses the mobile app and in what situation. Read [references/contract-template.md](references/contract-template.md) when creating the contract at `docs/mobile-transposition/CONTRACT.md` (or where the user prefers) and fill in the framing section.
 
 ### 1. Feature inventory and triage
 
-Produce one table, every feature on its own row: name, what it does, where it lives in the web app, verdict, mobile problem, proposed solution, priority (core or secondary). Verdicts and how to decide them: [references/feature-triage.md](references/feature-triage.md). Also propose features to **add** that only make sense on mobile (push, biometrics, camera, share sheet, widgets, offline).
+Produce one table, every feature on its own row: name, what it does, where it lives in the web app, verdict, mobile problem, proposed solution, priority (core or secondary). Read [references/feature-triage.md](references/feature-triage.md) when a verdict is not obvious. Also propose features to **add** that only make sense on mobile (push, biometrics, camera, share sheet, widgets, offline).
 
 Gate: the user validates or edits row by row, as many rounds as needed. Write the validated table to the contract.
 
 ### 2. Navigation architecture
 
-Produce the complete navigation graph as a Mermaid diagram, following [references/navigation-graph.md](references/navigation-graph.md): every screen is a node typed by its component (tab, stack screen, modal, bottom sheet, drawer, dialog, external), every edge is labelled with the interaction that triggers it (tap, swipe, long press, back, deep link, push notification). Add a legend. Check that every kept, adapted, replaced or added feature appears on at least one screen.
+Produce the complete navigation graph as a Mermaid diagram (read [references/navigation-graph.md](references/navigation-graph.md) for the notation): every screen is a node typed by its component (tab, stack screen, modal, bottom sheet, drawer, dialog, external), every edge is labelled with the interaction that triggers it (tap, swipe, long press, back, deep link, push notification). Add a legend. Check that every kept, adapted, replaced or added feature appears on at least one screen.
 
 Gate: validate, then write the graph and the screen list to the contract.
 
@@ -42,19 +46,19 @@ Gate: validate, then write the graph and the screen list to the contract.
 
 Ask one question: do we produce a design artifact? If no, record it in the contract and go to step 4.
 
-If yes: if the `grilling` skill is not already loaded in this conversation, call it with the Skill tool; if it is not available, continue without it. Grill the design using the question bank in [references/design-grilling.md](references/design-grilling.md): ask as many questions as needed, one branch at a time, until the direction is unambiguous. Then build the artifact (key screens first). Before delivering it, if the `design-without-ai-tells` skill is not already loaded in this conversation, call it with the Skill tool; if it is not available, continue without it.
+If yes: if the `grilling` skill is not already loaded in this conversation, call it with the Skill tool; if it is not available, continue without it. Grill the design (read [references/design-grilling.md](references/design-grilling.md) when the design is grilled): ask as many questions as needed, one branch at a time, until the direction is unambiguous. Then build the artifact (key screens first). Before delivering it, if the `design-without-ai-tells` skill is not already loaded in this conversation, call it with the Skill tool; if it is not available, continue without it.
 
 Gate: validate, then write the design decisions to the contract.
 
 ### 4. iOS and Android conventions
 
-Read [references/platform-conventions.md](references/platform-conventions.md) and keep only what applies to the screens in the graph. For each concerned screen or component, state what is shared and what diverges between iOS and Android. If a needed convention is missing from the references, research it from the official guidelines, use it, and add it to the references (new block plus one line in the index) without editing this file.
+Read only the sections of [references/platform-conventions.md](references/platform-conventions.md) that apply to the screens in the graph. For each concerned screen or component, state what is shared and what diverges between iOS and Android. If a needed convention is missing from the references, research it from the official guidelines, use it, and add it to the references (new block plus one line in the index) without editing this file.
 
 Gate: validate, then write the conventions to the contract.
 
 ### 5. State screens
 
-For every screen, decide which states apply and what each one shows and offers: loading, empty, error, offline, permission denied, session expired. Then the app-wide states: first launch and onboarding, forced update, maintenance. Use [references/states.md](references/states.md).
+For every screen, decide which states apply and what each one shows and offers: loading, empty, error, offline, permission denied, session expired. Then the app-wide states: first launch and onboarding, forced update, maintenance. Read [references/states.md](references/states.md) when a state's content is not obvious.
 
 Gate: validate, then write the states to the contract.
 
@@ -64,7 +68,7 @@ Re-read the whole contract and check its consistency with the checks below. Repo
 
 ### 7. Implementation in waves
 
-Propose an implementation split into ordered waves, following [references/implementation-waves.md](references/implementation-waves.md): wave 0 foundations, then core features, then secondary features, then native extras and polish. Within a wave, each agent takes independent screens, reads the contract as its only spec and ticks off what it delivers. Offer to launch the agents wave by wave; launch the next wave only after the previous one is validated.
+Propose an implementation split into ordered waves (read [references/implementation-waves.md](references/implementation-waves.md) when planning them): wave 0 foundations, then core features, then secondary features, then native extras and polish. Within a wave, each agent takes independent screens, reads the contract as its only spec and ticks off what it delivers. Offer to launch the agents wave by wave; launch the next wave only after the previous one is validated.
 
 ## Review format
 
