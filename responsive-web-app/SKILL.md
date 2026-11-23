@@ -65,5 +65,6 @@ Report findings as: element or rule, viewport or condition where it fails, cause
 No mandatory calls. **Related** (only when the situation appears):
 - `interface-craft`: the fine detail of touch targets, safe area and dynamic viewport units, when the question goes beyond the responsive criteria.
 - `design-without-ai-tells`: visual style and direction, which this skill does not decide.
+- `web-to-mobile-app`: when the user wants a real native mobile app, not a responsive web app.
 
 Outside this repo: pair with a product-design pass for flows and states, and with an accessibility check for anything beyond the responsive criteria.

@@ -1,4 +1,4 @@
-# Sommaire des skills
+﻿# Sommaire des skills
 
 Liste de tous les skills du repo. Chaque entrée renvoie vers l'`index.md` du skill.
 
@@ -13,6 +13,7 @@ Liste de tous les skills du repo. Chaque entrée renvoie vers l'`index.md` du sk
 | [interface-craft](interface-craft/index.md) | Détails fins d'interface : typographie, tactile, OKLCH, surfaces, animation, interaction (28 concepts, en ressources) | perso |
 | [creative-design](creative-design/index.md) | Pousser un design vers la créativité : bibliothèque d'idées (21 fonds créatifs) et recherche web | perso |
 | [app-motion](app-motion/index.md) | Animation d'app pour maximiser l'UX : 17 règles de motion, 12 principes Disney, 7 lois d'UX | perso |
+| [web-to-mobile-app](web-to-mobile-app/index.md) | Transposer une app web en vraie app mobile : tri des features, contrat, graphe de navigation, conventions iOS/Android, états, vagues d'agents | perso |
 
 ## Interconnexions
 
@@ -34,6 +35,13 @@ Qui appelle qui. **Appel** = une étape du workflow appelle le skill avec l'outi
 | app-motion | apple-design | souple | Gestes, drag, mouvement physique |
 | responsive-web-app | interface-craft | souple | Détails tactiles (safe area, `dvh`, cibles) |
 | responsive-web-app | design-without-ai-tells | souple | Style visuel, que ce skill ne décide pas |
+| responsive-web-app | web-to-mobile-app | souple | L'utilisateur veut une vraie app mobile, pas du responsive |
+| web-to-mobile-app | grilling | **Appel** | Étape 3 : grilling du design avant l'artefact |
+| web-to-mobile-app | design-without-ai-tells | **Appel** | Étape 3 : avant de livrer l'artefact de design |
+| web-to-mobile-app | responsive-web-app | souple | L'utilisateur veut en fait du responsive |
+| web-to-mobile-app | interface-craft | souple | Détails tactiles, typographie, surfaces d'un écran |
+| web-to-mobile-app | app-motion | souple | Transitions de navigation, sheets, feedback |
+| web-to-mobile-app | apple-design | souple | Gestes, sheets, springs sur iOS |
 
 `apple-design` n'a aucun lien sortant (skill tiers).
 
