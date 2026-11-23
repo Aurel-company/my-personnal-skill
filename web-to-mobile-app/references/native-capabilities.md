@@ -1,6 +1,6 @@
 # Native capabilities
 
-Used at step 1, for the **Add** and **Replace** verdicts. One row per capability. Cost is judgment, relative to a cross-platform stack: **S** a library and a screen, **M** platform-specific code or a backend change, **L** native extensions, separate targets or new infrastructure. Platform rules change every year: check the official pages (see `sources.md`).
+Used at step 1, for the **Add** and **Replace** verdicts. One row per capability. Cost is judgment, relative to a cross-platform stack: **S** a library and a screen, **M** platform-specific code or a backend change, **L** native extensions, separate targets or new infrastructure. When and how to ask each permission: [permissions-and-notifications.md](permissions-and-notifications.md). Platform rules change every year: check the official pages (see `sources.md`).
 
 | Capability | User value | Add when | Cost | Permission | Pitfalls |
 |------------|-----------|----------|------|------------|----------|

@@ -35,6 +35,8 @@ Used at step 1. Every web feature gets exactly one verdict.
 | Multi-select bulk actions | Fiddly | Edit mode with selection, bottom action bar |
 | Modals stacked on modals | Lost context | Push a screen, or a single sheet |
 
+Detail: tables, dashboards, bulk actions in [data-and-lists.md](data-and-lists.md); long forms in [forms-and-input.md](forms-and-input.md); native replacements in [native-capabilities.md](native-capabilities.md).
+
 ## Priority
 
 - **Core**: the reasons a user opens the app; they go into wave 1.

@@ -46,6 +46,8 @@ flowchart TD
   push((Push)) -->|deep link| thread
 ```
 
+Deep link entry points and route mapping: [deep-linking.md](deep-linking.md). Two-pane layouts on tablets: [tablets-and-foldables.md](tablets-and-foldables.md).
+
 ## Legend to add under the graph
 
 Shapes: stadium = tab, rectangle = screen, double box = modal, flag = bottom sheet, rhombus = dialog, circle = external or system. Labels on arrows = the interaction.

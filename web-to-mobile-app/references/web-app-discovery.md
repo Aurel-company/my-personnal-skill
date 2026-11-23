@@ -37,7 +37,7 @@ Features that are not a page in the nav but that users rely on.
 | Print and download | `window.print`, file downloads | Replace with share sheet or in-app viewer |
 | Onboarding and empty states | First-run flows, sample data, tours | Rethink for mobile at step 5 |
 | Localization | i18n files, locale switcher, RTL support | Carry over; flag text length and RTL for design |
-| Legal and consent | Cookie banners, terms acceptance, GDPR export / deletion | Account deletion must exist in the app if accounts are created there (App Store rule) |
+| Legal and consent | Cookie banners, terms acceptance, GDPR export / deletion | Account deletion must exist in the app if accounts are created there (see `release-and-stores.md`) |
 
 ## Method
 
@@ -52,10 +52,10 @@ Features that are not a page in the nav but that users rely on.
 Same columns as the contract's features table, verdict left empty, plus two working columns removed once validated.
 
 ```md
-| # | Feature | What it does | Web location | Verdict | Mobile problem | Solution | Priority | Status | Source in code | Confidence |
-|---|---------|--------------|--------------|---------|----------------|----------|----------|--------|----------------|------------|
-| 1 | Invoice list | Lists, filters and sorts invoices | /invoices | | | | | proposed | app/invoices/page.tsx, GET /api/invoices | high |
-| 2 | Overdue reminder | Emails the client 7 days after due date | (email) | | | | | proposed | jobs/overdue_reminder.rb | medium: flag state unknown |
+| # | Feature | What it does | Web location | Verdict | Mobile problem | Solution | Priority | Offline | Status | Source in code | Confidence |
+|---|---------|--------------|--------------|---------|----------------|----------|----------|---------|--------|----------------|------------|
+| 1 | Invoice list | Lists, filters and sorts invoices | /invoices | | | | | | proposed | app/invoices/page.tsx, GET /api/invoices | high |
+| 2 | Overdue reminder | Emails the client 7 days after due date | (email) | | | | | | proposed | jobs/overdue_reminder.rb | medium: flag state unknown |
 ```
 
 Confidence is judgment: **high** when route, UI and API agree, **medium** when one is missing or a flag hides it, **low** when only dead code or a backend endpoint suggests it.

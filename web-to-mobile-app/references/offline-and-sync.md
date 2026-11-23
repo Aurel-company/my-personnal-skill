@@ -89,4 +89,4 @@ Disable these offline with a short explanation, rather than hiding them.
 
 ## Contract column
 
-Add an **Offline** column to the contract's features table: `0`, `1`, `2` or `3`, plus the cache strategy and conflict rule when level ≥ 2 (e.g. `2, SWR, field merge`).
+Fill the **Offline** column of the contract's features table: `0`, `1`, `2` or `3`, plus the cache strategy and conflict rule when level ≥ 2 (e.g. `2, SWR, field merge`).

@@ -34,5 +34,6 @@ Used at step 3. Ask one branch at a time, follow up on vague answers, and stop a
 - Contrast target, color-blind safety, VoiceOver / TalkBack priorities?
 
 ## Scope of the artifact
+Defaults for screens, sizes and formats: [design-artifact-guide.md](design-artifact-guide.md).
 - Which screens first (usually the core tab roots and one detail)?
 - Static mockups, clickable prototype, or both? iOS only, Android only, or side by side?

@@ -1,6 +1,6 @@
 # Implementation waves
 
-Used at step 7. Waves are ordered by dependency; within a wave, agents work in parallel on independent screens.
+Used at step 7. Waves are ordered by dependency; within a wave, agents work in parallel on independent screens. Backend changes for wave 0: [api-for-mobile.md](api-for-mobile.md). Store release for wave 3: [release-and-stores.md](release-and-stores.md). Brief for each agent: [agent-brief-template.md](agent-brief-template.md).
 
 | Wave | Scope | Done when |
 |------|-------|-----------|

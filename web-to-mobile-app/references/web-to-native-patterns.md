@@ -23,3 +23,5 @@ Used at steps 1 and 2: the native equivalent of each web pattern.
 | Settings page | Grouped list screen; system settings for permissions | |
 | Footer links (legal, help) | Settings or profile screen | |
 | Multi-step wizard on one page | One step per screen, progress, back keeps data | |
+
+Detail: dropdowns, dates and wizards in [forms-and-input.md](forms-and-input.md); pagination, tables and search in [data-and-lists.md](data-and-lists.md); upload, share and login in [native-capabilities.md](native-capabilities.md); email to push in [permissions-and-notifications.md](permissions-and-notifications.md).

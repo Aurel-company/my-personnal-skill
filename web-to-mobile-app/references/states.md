@@ -1,6 +1,6 @@
 # State screens
 
-Used at step 5. For every screen, decide which states apply, what they show, and what action they offer.
+Used at step 5. For every screen, decide which states apply, what they show, and what action they offer. Detail: data strategy behind the offline state in [offline-and-sync.md](offline-and-sync.md); permission requests and refusal in [permissions-and-notifications.md](permissions-and-notifications.md); forced update config in [api-for-mobile.md](api-for-mobile.md).
 
 ## Per-screen states
 | State | What to show | Action offered | Notes |

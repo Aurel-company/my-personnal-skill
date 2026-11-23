@@ -34,3 +34,31 @@
 | [Android: Window size classes](https://developer.android.com/develop/ui/compose/layouts/adaptive/use-window-size-classes) / [Android: Large screens](https://developer.android.com/guide/topics/large-screens) / [Android: Foldables](https://developer.android.com/develop/ui/compose/layouts/adaptive/foldables/learn-about-foldables) | Adaptive layouts, navigation by width, foldable postures and hinge | Official |
 
 Judgment, not sourced: the triage verdicts, the web-to-native mapping, the graph notation, the wave split, the capability costs, the offline levels, the anti-pattern severities, the deep-link back stack choice, the stack comparison and decision tree, the form split threshold, the list and chart mappings, the notification frequency caps, the API priorities, the screenshot ordering and the design artifact order, sizes and formats. Platform rules change every year: check the official pages before relying on a detail.
+
+## Coverage by file
+
+| File | Sources |
+|------|---------|
+| web-app-discovery.md | Web framework docs |
+| stack-choice.md | Expo, React Native, Flutter, Kotlin Multiplatform docs, App Store Review Guidelines (OTA); comparison is judgment |
+| contract-template.md | Judgment |
+| feature-triage.md | Judgment |
+| native-capabilities.md | Apple and Android docs listed above (passkeys, VisionKit, ML Kit, photo picker, location, WidgetKit, ActivityKit, shortcuts, Apple Pay, Google Pay); costs are judgment |
+| forms-and-input.md | Apple textContentType, Android Autofill, MDN autocomplete, Apple HIG, Material Design 3; split threshold is judgment |
+| data-and-lists.md | Apple HIG, Material Design 3; mappings are judgment |
+| web-to-native-patterns.md | Apple HIG, Material Design 3; mapping is judgment |
+| navigation-graph.md | Judgment (notation) |
+| deep-linking.md | Apple universal links, Android App Links, Android principles of navigation |
+| tablets-and-foldables.md | Apple HIG layout and multitasking, Android window size classes, large screens, foldables |
+| design-grilling.md | Judgment |
+| design-artifact-guide.md | Apple HIG, Material Design 3; order, sizes and formats are judgment |
+| platform-conventions.md | Apple HIG, Material Design 3, Android developers, App Store Review Guidelines |
+| states.md | Judgment |
+| permissions-and-notifications.md | Android runtime permissions, App Tracking Transparency, UserNotifications, notification channels, App Store Review Guidelines |
+| accessibility-mobile.md | Apple and Android accessibility docs, WCAG 2.2 |
+| offline-and-sync.md | Android offline-first guide; levels are judgment |
+| mobile-anti-patterns.md | Apple HIG, Material Design 3, App Store Review Guidelines; severities are judgment |
+| implementation-waves.md | Judgment |
+| api-for-mobile.md | RFC 8252, RFC 9700, App Store Review Guidelines (account deletion); priorities are judgment |
+| agent-brief-template.md | Judgment |
+| release-and-stores.md | App Store Connect help, TestFlight, Play Console help, App Store Review Guidelines, Google Play policies, privacy manifest docs |

@@ -1,6 +1,6 @@
 # iOS and Android conventions
 
-Used at step 4. Keep only what applies to the screens in the graph. Add missing conventions here (block plus one index line), from the official guidelines.
+Used at step 4. Keep only what applies to the screens in the graph. Tablets and foldables: `tablets-and-foldables.md`. Add missing conventions here (block plus one index line), from the official guidelines.
 
 ## Navigation and back
 | Topic | iOS (HIG) | Android (Material 3) |
@@ -28,7 +28,7 @@ Used at step 4. Keep only what applies to the screens in the graph. Add missing 
 |-------|-----|---------|
 | Minimum target | 44 × 44 pt | 48 × 48 dp |
 | Safe areas | Respect notch, Dynamic Island and home indicator | Edge-to-edge with system bar insets (enforced from Android 15 for apps targeting it) |
-| Text size | Dynamic Type, text styles (Body 17 pt) | Font scale in sp, type scale (Body large 16 sp) |
+| Text size | Dynamic Type, text styles (Body 17 pt); accessibility rules in `accessibility-mobile.md` | Font scale in sp, type scale (Body large 16 sp) |
 | Typeface | SF Pro (system) | Roboto / system font, or brand via the type scale |
 | Icons | SF Symbols | Material Symbols |
 | Color | Semantic system colors, light and dark | Dynamic color (Material You) optional, light and dark |
@@ -36,9 +36,9 @@ Used at step 4. Keep only what applies to the screens in the graph. Add missing 
 ## System integration
 | Topic | iOS | Android |
 |-------|-----|---------|
-| Permissions | Purpose string required; ask in context; one chance before Settings | Runtime permissions; rationale after a denial; notification permission from Android 13 |
-| Push | APNs; provisional authorization possible | FCM; notification channels per category |
-| Auth | Face ID / Touch ID, passkeys, Sign in with Apple (required if other social logins are offered, with exceptions) | Biometric prompt, passkeys / Credential Manager, Google sign-in |
+| Permissions | Purpose string required; one system prompt (detail in `permissions-and-notifications.md`) | Runtime permissions, can be asked again (detail in `permissions-and-notifications.md`) |
+| Push | APNs; categories and interruption levels (detail in `permissions-and-notifications.md`) | FCM; notification channels (detail in `permissions-and-notifications.md`) |
+| Auth | Face ID / Touch ID, passkeys, Sign in with Apple (or another privacy-focused login) when third-party logins are offered (App Store 4.8) | Biometric prompt, passkeys / Credential Manager, Google sign-in |
 | Storage of secrets | Keychain | Keystore / encrypted storage |
 | Links | Universal Links | App Links |
 | Sharing | Share sheet, share extension | Sharesheet, intent filters |

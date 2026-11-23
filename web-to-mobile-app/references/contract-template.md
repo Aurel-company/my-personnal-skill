@@ -25,16 +25,17 @@ Every decision carries a status: `proposed`, `validated`, `changed (date, reason
 ## 0. Framing
 - Web app: <repo, stack, main routes>
 - Platforms: iOS / Android / both
-- Mobile stack: React Native / Flutter / Swift + Kotlin
+- Mobile stack: React Native / Flutter / Swift + Kotlin (and the deciding reason)
+- Form factors: phone / tablet / foldable; orientations
 - Users and context of use:
 - Out of scope:
 
 ## 1. Features
-| # | Feature | What it does | Web location | Verdict | Mobile problem | Solution | Priority | Status |
-|---|---------|--------------|--------------|---------|----------------|----------|----------|--------|
+| # | Feature | What it does | Web location | Verdict | Mobile problem | Solution | Priority | Offline | Status |
+|---|---------|--------------|--------------|---------|----------------|----------|----------|---------|--------|
 
 ## 2. Navigation
-<!-- Mermaid graph + legend + screen list (id, type, features, entry points) -->
+<!-- Mermaid graph + legend + screen list (id, type, features, entry points) + deep link mapping table -->
 
 ## 3. Design
 <!-- Decisions from the grilling, link to the artifact, or "skipped". -->
