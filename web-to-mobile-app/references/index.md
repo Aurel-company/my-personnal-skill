@@ -16,7 +16,9 @@ Everything concrete lives here so it can be updated without touching `SKILL.md`.
 | [web-to-native-patterns.md](web-to-native-patterns.md) | 1, 2 | Steps 1 and 2, when a web pattern has no obvious native equivalent | Native equivalent of each web pattern |
 | [navigation-graph.md](navigation-graph.md) | 2 | Step 2, when drawing the graph | Mermaid notation for node types and edges, rules, example, legend |
 | [deep-linking.md](deep-linking.md) | 2 | Step 2, when web URLs are shared (email, push, share) or the app receives push notifications | Route mapping table, Universal Links and App Links, push routing, edge cases, graph notation |
+| [tablets-and-foldables.md](tablets-and-foldables.md) | 2, 4 | Steps 2 and 4, only when tablets or foldables are in scope in the contract | Size classes, navigation by width, list-detail, multitasking, keyboard and pointer, foldables, notation in graph and contract |
 | [design-grilling.md](design-grilling.md) | 3 | Step 3, only if the user wants a design artifact | Question bank for the design grilling |
+| [design-artifact-guide.md](design-artifact-guide.md) | 3 | Step 3, after the grilling, only if the user wants a design artifact | Screens to design first, reference sizes, iOS and Android side by side, format, what goes back to the contract |
 | [platform-conventions.md](platform-conventions.md) | 4 | Step 4, only the sections matching the screens in the graph | iOS vs Android: navigation, controls, layout, system integration, what to share |
 | [states.md](states.md) | 5 | Step 5, when a state's content or action is not obvious | Per-screen and app-wide states |
 | [permissions-and-notifications.md](permissions-and-notifications.md) | 4, 5 | Step 4 or 5, when a screen needs a runtime permission or the app sends notifications | When to ask each permission, pre-prompt, refusal and settings, notification types, iOS categories and Android channels, silent push |
@@ -26,4 +28,5 @@ Everything concrete lives here so it can be updated without touching `SKILL.md`.
 | [implementation-waves.md](implementation-waves.md) | 7 | Step 7, when planning the waves | Wave split and rules for agents |
 | [api-for-mobile.md](api-for-mobile.md) | 7 | Step 7, when planning wave 0, if the team can change the backend | Mobile need → API change → priority; versioning and forced update, auth, structured errors |
 | [agent-brief-template.md](agent-brief-template.md) | 7 | Step 7, when launching an agent of a wave | Copyable brief: scope, reuse, states, conventions, done criteria, forbidden, reporting |
+| [release-and-stores.md](release-and-stores.md) | 7 | Step 7, when planning wave 3 or preparing a store submission | Accounts, signing, environments, test tracks, frequent rejections, store assets, OTA, rollout, crash reporting, versioning |
 | [sources.md](sources.md) | — | When a platform rule must be checked against the official page | Sources and reliability |

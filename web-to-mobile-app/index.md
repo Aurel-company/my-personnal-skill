@@ -85,6 +85,9 @@ Utilisation : automatique, ou à la main avec `/web-to-mobile-app`.
 | `references/permissions-and-notifications.md` | Moment et écran de demande des permissions, refus, types et canaux de notifications |
 | `references/accessibility-mobile.md` | Taille du texte, VoiceOver et TalkBack, contraste, animations, checklist sur appareil |
 | `references/api-for-mobile.md` | Changements côté API : versioning, mise à jour forcée, pagination, auth, push, erreurs |
+| `references/release-and-stores.md` | Comptes, signature, environnements, TestFlight et tests Play, motifs de rejet, assets, OTA, déploiement progressif |
+| `references/tablets-and-foldables.md` | iPad et grands écrans Android, liste-détail, multitâche, clavier et pointeur, pliables (seulement si dans le périmètre) |
+| `references/design-artifact-guide.md` | Écrans à maquetter en premier, tailles de référence, iOS et Android côte à côte, format, retour au contrat |
 | `references/sources.md` | Sources et fiabilité |
 
 ## Crédits
