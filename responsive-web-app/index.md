@@ -16,7 +16,7 @@ Se déclenche quand tu parles de responsive, de mise en page mobile, de breakpoi
 
 ## Dépendances
 
-Aucun appel obligatoire. Renvois souples vers `interface-craft` (détails tactiles : safe area, `dvh`, cibles) et `design-without-ai-tells` (style visuel, que ce skill ne décide pas). Se combine aussi avec un skill de design produit (parcours, états) et un contrôle d'accessibilité plus large.
+Aucun appel obligatoire. Renvois souples vers `interface-craft` (détails tactiles : safe area, `dvh`, cibles), `design-without-ai-tells` (style visuel, que ce skill ne décide pas) et `web-to-mobile-app` (quand tu veux une vraie app mobile, pas du responsive). Se combine aussi avec un skill de design produit (parcours, états) et un contrôle d'accessibilité plus large.
 
 ## Installation
 
