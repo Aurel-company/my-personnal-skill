@@ -79,6 +79,12 @@ Utilisation : automatique, ou à la main avec `/web-to-mobile-app`.
 | `references/offline-and-sync.md` | Niveaux d'offline, cache, mises à jour optimistes, file d'actions, conflits |
 | `references/mobile-anti-patterns.md` | Signes « ça sent le site web », avec correction et gravité |
 | `references/agent-brief-template.md` | Brief type à donner à chaque agent d'une vague |
+| `references/stack-choice.md` | React Native + Expo, Flutter ou natif : comparaison, partage avec le web, arbre de décision |
+| `references/forms-and-input.md` | Claviers et autofill, clavier qui ne masque rien, validation, découpage, pickers, brouillons |
+| `references/data-and-lists.md` | Tableau web vers liste, filtres, actions groupées, swipe, pagination, graphiques |
+| `references/permissions-and-notifications.md` | Moment et écran de demande des permissions, refus, types et canaux de notifications |
+| `references/accessibility-mobile.md` | Taille du texte, VoiceOver et TalkBack, contraste, animations, checklist sur appareil |
+| `references/api-for-mobile.md` | Changements côté API : versioning, mise à jour forcée, pagination, auth, push, erreurs |
 | `references/sources.md` | Sources et fiabilité |
 
 ## Crédits
