@@ -1,4 +1,4 @@
-﻿# Sommaire des skills
+# Sommaire des skills
 
 Liste de tous les skills du repo. Chaque entrée renvoie vers l'`index.md` du skill.
 

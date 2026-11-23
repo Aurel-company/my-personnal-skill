@@ -42,7 +42,7 @@ Gate: validate, then write the graph and the screen list to the contract.
 
 Ask one question: do we produce a design artifact? If no, record it in the contract and go to step 4.
 
-If yes: if the `grilling` skill is not already loaded in this conversation, call it with the Skill tool; if it is not available, continue without it. Grill the design using the question bank in [references/design-grilling.md](references/design-grilling.md): ask as many questions as needed, one branch at a time, until the direction is unambiguous. Then build the artifact (key screens first). Before delivering it, if the `design-without-ai-tells` skill is not already loaded, call it with the Skill tool; if it is not available, continue without it.
+If yes: if the `grilling` skill is not already loaded in this conversation, call it with the Skill tool; if it is not available, continue without it. Grill the design using the question bank in [references/design-grilling.md](references/design-grilling.md): ask as many questions as needed, one branch at a time, until the direction is unambiguous. Then build the artifact (key screens first). Before delivering it, if the `design-without-ai-tells` skill is not already loaded in this conversation, call it with the Skill tool; if it is not available, continue without it.
 
 Gate: validate, then write the design decisions to the contract.
 
